@@ -244,53 +244,60 @@
 
     <!-- HERO -->
     <section
-      class="relative min-h-screen flex items-center justify-center overflow-hidden"
+      class="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
     >
+      <!-- Content Container -->
       <div class="relative z-10 w-full max-w-7xl mx-auto px-6 text-center">
-        <p
-          class="hero-animate text-xs uppercase tracking-[0.3em] text-gray-500 mt-20 mb-6"
-        >
+        <!-- Intro -->
+        <p class="text-xs uppercase tracking-[0.3em] text-gray-500 mt-20 mb-6">
           👋 HELLO MY NAME IS ALVIN
         </p>
 
+        <!-- Main Title -->
         <h1
-          class="hero-animate font-righteous font-bold text-5xl md:text-6xl tracking-wide"
+          class="font-righteous font-bold text-4xl sm:text-5xl md:text-6xl tracking-wide"
         >
           ANDROID DEVELOPER
         </h1>
 
         <h2
-          class="hero-animate font-righteous font-bold text-4xl md:text-5xl stroke-text mt-2 tracking-wide"
+          class="font-righteous font-bold text-3xl sm:text-4xl md:text-5xl stroke-text mt-2 tracking-wide"
         >
           UI/UX DESIGNER
         </h2>
 
+        <!-- Location + Status -->
         <div
-          class="flex justify-between items-center mt-4 text-sm text-gray-600 max-w-5xl mx-auto"
+          class="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-2 mt-6 text-sm text-gray-600 max-w-5xl mx-auto"
         >
-          <p class="text-sm text-gray-500 font-medium">
-            Based in Bangkalan, Indonesia
-          </p>
-          <p class="text-sm text-gray-500 font-medium">
+          <p class="text-gray-500 font-medium">Based in Bangkalan, Indonesia</p>
+          <p class="text-gray-500 font-medium">
             Available for Internship • Freelance • Fulltime
           </p>
         </div>
 
-        <div class="relative mt-2 flex justify-center">
+        <!-- Image Section -->
+        <div class="relative mt-10 flex justify-center overflow-hidden">
+          <!-- Rounded Background Shape -->
           <div
-            class="absolute bottom-0 w-[500px] h-[250px] bg-primary rounded-t-full"
+            class="absolute bottom-0 w-[300px] h-[150px] md:w-[500px] md:h-[250px] bg-primary rounded-t-full"
           ></div>
-          <div class="relative">
+
+          <!-- Image -->
+          <div class="relative z-10">
             <img
               src="assets/foto-gue-1.svg"
-              class="float relative h-80 md:h-96 object-cover z-10"
+              alt="Alvin"
+              class="relative h-72 sm:h-80 md:h-96 object-contain"
             />
           </div>
+
+          <!-- Bottom Fade Gradient -->
+          <div
+            class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent pointer-events-none"
+          ></div>
         </div>
       </div>
-      <div
-        class="absolute bottom-0 left-0 w-screen h-16 bg-gradient-to-t from-background to-transparent z-20"
-      ></div>
     </section>
 
     <!-- ABOUT -->
