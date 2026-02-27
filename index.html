@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Alvin Suwarno Putra | Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/icon.svg"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#006D77",
+              background: "#EDF6F9",
+              darktext: "#0E0E2C",
+            },
+            fontFamily: {
+              montserrat: ["Montserrat", "sans-serif"],
+              lora: ["Lora", "serif"],
+              righteous: ["Righteous", "cursive"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Smooth Scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* NAV BLUR */
+      .nav-blur {
+        backdrop-filter: blur(12px);
+        background: rgba(237, 246, 249, 0.85);
+        transition: 0.4s ease;
+      }
+
+      /* NAV LINK UNDERLINE */
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0%;
+        height: 2px;
+        background: #006d77;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* STROKE */
+      .stroke-text {
+        -webkit-text-stroke: 0.2px #006d77;
+        color: transparent;
+      }
+
+      /* HERO FADE STAGGER */
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-animate {
+        opacity: 0;
+        animation: fadeUp 1s ease forwards;
+      }
+
+      .hero-animate:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+
+      .hero-animate:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+
+      .hero-animate:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+
+      /* FLOAT IMAGE */
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-12px);
+        }
+
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .float {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      /* PROJECT HOVER */
+      .project-card {
+        transition: 0.4s ease;
+      }
+
+      .img {
+        draggable: false;
+      }
+
+      .project-card img {
+        transition: 0.6s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+      }
+
+      .project-card:hover img {
+        transform: scale(1.05);
+      }
+
+      /* BUTTON POP */
+      .button-pop {
+        transition: 0.3s ease;
+      }
+
+      .button-pop:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      /* SCROLL REVEAL */
+      .fade-section {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 0.8s ease;
+      }
+
+      .fade-section.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* RESPONSIVE FIXES */
+      @media (max-width: 1024px) {
+        section {
+          padding-left: 1.5rem !important;
+          padding-right: 1.5rem !important;
+        }
+
+        .-ml-24 {
+          margin-left: 0 !important;
+        }
+
+        .flex.justify-between.items-center.mt-4 {
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+    </style>
+  </head>
+
+  <body
+    oncontextmenu="return false;"
+    class="bg-background text-darktext font-montserrat"
+  >
+    <!-- NAVBAR -->
+    <nav
+      id="navbar"
+      class="fixed w-full z-50 transition-all duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex justify-between items-center"
+      >
+        <a
+          href="#"
+          class="font-righteous text-lg font-bold tracking-wider text-primary"
+        >
+          ALVINSP_
+        </a>
+
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
+          <a
+            href="#about"
+            class="nav-link hover:text-primary transition"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="nav-link hover:text-primary transition"
+            >Projects</a
+          >
+          <a
+            href="#contact"
+            class="nav-link hover:text-primary transition"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section
+      class="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      <div class="relative z-10 w-full max-w-7xl mx-auto px-6 text-center">
+        <p
+          class="hero-animate text-xs uppercase tracking-[0.3em] text-gray-500 mt-20 mb-6"
+        >
+          👋 HELLO MY NAME IS ALVIN
+        </p>
+
+        <h1
+          class="hero-animate font-righteous font-bold text-5xl md:text-6xl tracking-wide"
+        >
+          ANDROID DEVELOPER
+        </h1>
+
+        <h2
+          class="hero-animate font-righteous font-bold text-4xl md:text-5xl stroke-text mt-2 tracking-wide"
+        >
+          UI/UX DESIGNER
+        </h2>
+
+        <div
+          class="flex justify-between items-center mt-4 text-sm text-gray-600 max-w-5xl mx-auto"
+        >
+          <p class="text-sm text-gray-500 font-medium">
+            Based in Bangkalan, Indonesia
+          </p>
+          <p class="text-sm text-gray-500 font-medium">
+            Available for Internship • Freelance • Fulltime
+          </p>
+        </div>
+
+        <div class="relative mt-2 flex justify-center">
+          <div
+            class="absolute bottom-0 w-[500px] h-[250px] bg-primary rounded-t-full"
+          ></div>
+          <div class="relative">
+            <img
+              src="assets/foto-gue-1.svg"
+              class="float relative h-80 md:h-96 object-cover z-10"
+            />
+          </div>
+          <div
+            class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-background to-transparent z-20"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section
+      id="about"
+      class="fade-section bg-white py-24 px-24"
+    >
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold tracking-wide mb-16 text-center">
+          ABOUT <span class="text-primary">ME</span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-4 items-stretch">
+          <div class="flex justify-center md:justify-start">
+            <div class="relative w-[280px] md:w-[360px] h-[320px] md:h-[420px]">
+              <!-- Background Shape -->
+              <div class="absolute inset-0 bg-primary rounded-t-[60px]"></div>
+
+              <!-- Inner Border -->
+              <div
+                class="absolute inset-5 md:inset-6 border-2 border-white rounded-t-[45px]"
+              ></div>
+
+              <!-- Image -->
+              <img
+                src="assets/about.svg"
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[220px] md:w-[300px] object-contain z-10"
+              />
+            </div>
+          </div>
+
+          <div class="md:-ml-24 mt-10 md:mt-0">
+            <p class="font-lora text-base leading-relaxed text-gray-600 mb-6">
+              I am a passionate Android Developer and UI/UX Designer who enjoys
+              turning ideas into real mobile applications. I specialize in
+              designing clean interfaces and developing functional Android apps
+              with modern UI.
+            </p>
+
+            <p class="font-lora text-base leading-relaxed text-gray-600 mb-6">
+              I am a fast learner, detail-oriented, and highly motivated to grow
+              in the tech industry. Currently improving my skills in mobile
+              development, design systems, and real-world projects. My goal is
+              to become a professional developer and designer who creates
+              meaningful digital experiences.
+            </p>
+
+            <!-- EDUCATION -->
+            <h3 class="text-primary text-xl font-bold mt-14 mb-6 tracking-wide">
+              EDUCATION
+            </h3>
+
+            <div class="space-y-8 text-base">
+              <!-- UMM -->
+              <div class="flex items-start gap-4">
+                <span class="text-lg">★</span>
+
+                <div class="flex flex-1 justify-between">
+                  <div>
+                    <p class="font-medium">
+                      Bachelor of Informatics Engineering
+                    </p>
+                    <p class="text-gray-500 text-sm mt-1">
+                      University of Muhammadiyah Malang
+                    </p>
+                  </div>
+
+                  <div class="text-gray-400 text-sm whitespace-nowrap">
+                    2021 - 2025
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bangkit -->
+              <div class="flex items-start gap-4">
+                <span class="text-lg">★</span>
+
+                <div class="flex flex-1 justify-between">
+                  <div>
+                    <p class="font-medium">
+                      Bangkit Academy — Mobile Development (Kotlin)
+                    </p>
+                    <p class="text-gray-500 text-sm mt-1">
+                      Industry-led program focused on Android development and
+                      modern software engineering practices.
+                    </p>
+                  </div>
+
+                  <div class="text-gray-400 text-sm whitespace-nowrap">
+                    Jul 2023 - Jan 2024
+                  </div>
+                </div>
+              </div>
+
+              <!-- Flutter -->
+              <div class="flex items-start gap-4">
+                <span class="text-lg">★</span>
+
+                <div class="flex flex-1 justify-between">
+                  <div>
+                    <p class="font-medium">
+                      Independent Study — Flutter Development
+                    </p>
+                    <p class="text-gray-500 text-sm mt-1">
+                      Course-Net Academy — Focused on cross-platform mobile
+                      development and frontend-backend integration.
+                    </p>
+                  </div>
+
+                  <div class="text-gray-400 text-sm whitespace-nowrap">
+                    Feb 2024 - Jun 2024
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- WORK & ORGANIZATION -->
+            <h3 class="text-primary text-xl font-bold mt-14 mb-6 tracking-wide">
+              WORK & ORGANIZATIONAL EXPERIENCES
+            </h3>
+
+            <div class="space-y-8 text-base">
+              <!-- Photocopy -->
+              <div class="flex items-start gap-4">
+                <span class="text-lg">★</span>
+
+                <div class="flex flex-1 justify-between">
+                  <div>
+                    <p class="font-medium">
+                      Staff Photocopy & Printing Service — Abhece
+                    </p>
+                    <p class="text-gray-500 text-sm mt-1">
+                      Handled document printing, customer service, and daily
+                      operations in high-volume environment.
+                    </p>
+                  </div>
+
+                  <div class="text-gray-400 text-sm whitespace-nowrap">
+                    Jul 2025 - Dec 2025
+                  </div>
+                </div>
+              </div>
+
+              <!-- Internship -->
+              <div class="flex items-start gap-4">
+                <span class="text-lg">★</span>
+
+                <div class="flex flex-1 justify-between">
+                  <div>
+                    <p class="font-medium">Intern — UI/UX Designer</p>
+                    <p class="text-gray-500 text-sm mt-1">
+                      Mitra Pedagang Indonesia — Designed e-commerce UI,
+                      implemented responsive interfaces using Tailwind CSS, and
+                      collaborated with development team.
+                    </p>
+                  </div>
+
+                  <div class="text-gray-400 text-sm whitespace-nowrap">
+                    Feb 2024 - May 2024
+                  </div>
+                </div>
+              </div>
+
+              <!-- Organization -->
+              <div class="flex items-start gap-4">
+                <span class="text-lg">★</span>
+
+                <div class="flex flex-1 justify-between">
+                  <div>
+                    <p class="font-medium">Head of Public Relations Division</p>
+                    <p class="text-gray-500 text-sm mt-1">
+                      Queen Pawn Chess Club — Led content strategy, managed
+                      social media, organized campus tournaments and recruitment
+                      campaigns.
+                    </p>
+                  </div>
+
+                  <div class="text-gray-400 text-sm whitespace-nowrap">
+                    Apr 2023 - Sept 2024
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="text-lg">★</span>
+
+                <div class="flex flex-1 justify-between">
+                  <div>
+                    <p class="font-medium">Head of Copywriter Divison</p>
+                    <p class="text-gray-500 text-sm mt-1">
+                      Bangkalan Developer — Led content strategy, managed social
+                      media, organized campus tournaments and recruitment
+                      campaigns.
+                    </p>
+                  </div>
+
+                  <div class="text-gray-400 text-sm whitespace-nowrap">
+                    Sept 2024 - Oct 2025
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section
+      id="projects"
+      class="fade-section py-24 px-24"
+    >
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold tracking-wide text-center mb-16">
+          PROJECTS
+        </h2>
+        <div class="mt-12 grid md:grid-cols-2 gap-x-[23px] gap-y-[36px]">
+          <div class="project-card text-center">
+            <img src="assets/projects-1.png" />
+            <h3 class="mt-4 text-2xl font-bold tracking-wide">
+              MPStore E-Commerce
+            </h3>
+            <div class="mt-6 flex justify-center">
+              <a
+                href="https://www.figma.com/proto/ahoR6rpJZlA6PDBXkLAbn1/MPStore-E-Commerce?page-id=0%3A1&node-id=277-1265&viewport=472%2C469%2C0.09&t=JX0T4Y2i9OF8HqcJ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=277%3A1265"
+                class="button-pop w-14 h-12 bg-white rounded-xl shadow-md flex items-center justify-center"
+              >
+                <img
+                  src="assets/figma-icon.svg"
+                  class="w-8"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card text-center">
+            <img src="assets/projects-2.png" />
+            <h3 class="mt-4 text-2xl font-bold tracking-wide">FITCAMP</h3>
+            <div class="mt-6 flex justify-center">
+              <a
+                href="https://www.figma.com/proto/yTgmsqhnFky3xqWhhKb0US/FITCAMP?page-id=40%3A38&node-id=44-41&viewport=351%2C582%2C0.04&t=XMiE4lqKJQ62O2aC-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=44%3A41"
+                class="button-pop w-14 h-12 bg-white rounded-xl shadow-md flex items-center justify-center"
+              >
+                <img
+                  src="assets/figma-icon.svg"
+                  class="w-8"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 grid md:grid-cols-2 gap-x-[23px] gap-y-[36px]">
+          <div class="project-card text-center">
+            <img src="assets/projects-3.png" />
+            <h3 class="mt-4 text-2xl font-bold tracking-wide">SOS App</h3>
+            <div class="mt-6 flex justify-center">
+              <a
+                href="https://www.figma.com/proto/l8RHShPxXDZBoGjQK13GLy/LAYANAN-KESEHATAN?page-id=4940%3A490&node-id=5056-3031&starting-point-node-id=5056%3A3031&scaling=scale-down&content-scaling=fixed&show-proto-sidebar=1&t=welLWmk5Wx0TWdPp-1"
+                class="button-pop w-14 h-12 bg-white rounded-xl shadow-md flex items-center justify-center"
+              >
+                <img
+                  src="assets/figma-icon.svg"
+                  class="w-8"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card text-center">
+            <img src="assets/projects-4.png" />
+            <h3 class="mt-4 text-2xl font-bold tracking-wide">Buku Kita App</h3>
+            <div class="mt-6 flex justify-center">
+              <a
+                href=" https://www.figma.com/proto/Oy7WUXMnSrFVfOdhAMs1PP/Peminjaman-Buku?page-id=0%3A1&node-id=2-1775&viewport=80%2C331%2C0.16&t=fomk13DV76PIj7jV-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A1812"
+                class="button-pop w-14 h-12 bg-white rounded-xl shadow-md flex items-center justify-center"
+              >
+                <img
+                  src="assets/figma-icon.svg"
+                  class="w-8"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 grid md:grid-cols-2 gap-x-[23px] gap-y-[36px]">
+          <div class="project-card text-center">
+            <img src="assets/projects-5.png" />
+            <h3 class="mt-4 text-2xl font-bold tracking-wide">
+              KickExchange App
+            </h3>
+            <div class="mt-6 flex justify-center">
+              <div class="columns-2">
+                <a
+                  href="https://www.figma.com/proto/yTgmsqhnFky3xqWhhKb0US/FITCAMP?page-id=40%3A38&node-id=44-41&viewport=351%2C582%2C0.04&t=XMiE4lqKJQ62O2aC-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=44%3A41"
+                  class="button-pop w-14 h-12 bg-white rounded-xl shadow-md flex items-center justify-center"
+                >
+                  <img
+                    src="assets/figma-icon.svg"
+                    class="w-8"
+                  />
+                </a>
+                <a
+                  href="https://github.com/alvinsp/KickExchange"
+                  class="button-pop w-14 h-12 bg-white rounded-xl shadow-md flex items-center justify-center"
+                >
+                  <img src="assets/github-icon.svg" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card text-center">
+            <img src="assets/projects-6.png" />
+            <h3 class="mt-4 text-2xl font-bold tracking-wide">
+              MingYu Restaurant App
+            </h3>
+            <div class="mt-6 flex justify-center">
+              <a
+                href="https://www.figma.com/proto/l4FrxMgh30p93jlO2bsIqK/SEMUA-ADA?page-id=423%3A637&node-id=423-671&viewport=171%2C305%2C0.09&t=rBPP0wHgx9Uhkcke-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=423%3A668"
+                class="button-pop w-14 h-12 bg-white rounded-xl shadow-md flex items-center justify-center"
+              >
+                <img
+                  src="assets/figma-icon.svg"
+                  class="w-8"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      id="contact"
+      class="fade-section py-24 px-24"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="bg-primary rounded-[28px] p-16 text-white">
+          <div class="grid md:grid-cols-2 gap-12">
+            <div>
+              <h3 class="font-righteous text-xl tracking-wider">ALVINSP_</h3>
+              <p class="font-lora text-sm text-white/80 mt-4">
+                Designed & crafted with passion for clean and modern user
+                experiences
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-lg tracking-wide">CONTACT:</h3>
+              <div class="space-y-4 text-white/90 text-sm mt-4">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="assets/email.svg"
+                    class="w-4"
+                  />
+                  <a
+                    href="mailto:alvinsuwarnoputra31@gmail.com"
+                    class="hover:underline"
+                  >
+                    alvinsuwarnoputra31@gmail.com
+                  </a>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <img
+                    src="assets/2.svg"
+                    class="w-4"
+                  />
+                  <a
+                    href="https://www.instagram.com/alvinsp_"
+                    class="hover:underline"
+                  >
+                    @alvinsp_
+                  </a>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <img
+                    src="assets/1.svg"
+                    class="w-4"
+                  />
+                  <a
+                    href="https://www.linkedin.com/in/alvin-suwarno-putra-829a24235/"
+                    target="_blank"
+                    class="hover:underline break-all"
+                  >
+                    https://www.linkedin.com/in/alvin-suwarno-putra-829a24235/
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-white/30 my-10"></div>
+          <p class="text-xs text-white/60 tracking-wide">
+            © 2026 Alvin Putra — UI/UX Designer & Android Developer
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+      });
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("nav-blur");
+        } else {
+          navbar.classList.remove("nav-blur");
+        }
+      });
+
+      const sections = document.querySelectorAll(".fade-section");
+      const reveal = () => {
+        sections.forEach((section) => {
+          if (section.getBoundingClientRect().top < window.innerHeight - 100) {
+            section.classList.add("active");
+          }
+        });
+      };
+      window.addEventListener("scroll", reveal);
+      reveal();
+    </script>
+  </body>
+</html>
